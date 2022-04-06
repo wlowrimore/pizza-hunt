@@ -72,4 +72,4 @@ const commentController = {
   }
 };
 
-module.export = commentController;
+module.exports = commentController;
