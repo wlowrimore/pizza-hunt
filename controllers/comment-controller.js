@@ -9,7 +9,7 @@ const commentController = {
     params,
     body
   }, res) {
-    console.log(body);
+    console.log(params);
     Comment.create(body)
       .then(({
         _id
@@ -25,6 +25,7 @@ const commentController = {
         });
       })
       .then(dbPizzaData => {
+        console.log(dbPizzaData);
         if (!dbPizzaData) {
           res.status(404).json({
             message: 'No pizza found with this id!'
@@ -36,6 +37,7 @@ const commentController = {
       .catch(err => res.json(err));
   },
 
+  // add reply to comment
   addReply({
     params,
     body
@@ -96,7 +98,7 @@ const commentController = {
       })
       .catch(err => res.json(err));
   },
-
+  // remove reply
   removeReply({
     params
   }, res) {
